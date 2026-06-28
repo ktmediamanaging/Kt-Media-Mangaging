@@ -31,6 +31,7 @@
       --pink: #ff4fd8;
       --line: rgba(111, 100, 98, 0.22);
       --shadow: 0 24px 70px rgba(92, 80, 78, 0.16);
+      --shadow-soft: 0 14px 45px rgba(92, 80, 78, 0.10);
       --shadow-dark: 0 30px 100px rgba(5, 5, 10, 0.36);
       --radius: 26px;
       --radius-lg: 46px;
@@ -52,9 +53,9 @@
       color: var(--ink);
       font-family: "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, rgba(255, 79, 216, 0.13), transparent 26rem),
+        radial-gradient(circle at 0% 0%, rgba(255, 79, 216, 0.12), transparent 26rem),
         radial-gradient(circle at 100% 5%, rgba(103, 247, 255, 0.12), transparent 30rem),
-        radial-gradient(circle at 8% 30%, rgba(216, 185, 178, 0.48), transparent 28rem),
+        radial-gradient(circle at 8% 30%, rgba(216, 185, 178, 0.52), transparent 28rem),
         radial-gradient(circle at 50% 100%, rgba(216, 184, 111, 0.18), transparent 32rem),
         linear-gradient(135deg, var(--cream), var(--cream-2));
       overflow-x: hidden;
@@ -71,7 +72,23 @@
         linear-gradient(rgba(111,100,98,.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(111,100,98,.035) 1px, transparent 1px);
       background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, black, transparent 80%);
+      mask-image: linear-gradient(to bottom, black, transparent 82%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      z-index: -3;
+      width: 60rem;
+      height: 60rem;
+      right: -26rem;
+      top: 16rem;
+      border-radius: 999px;
+      pointer-events: none;
+      background:
+        radial-gradient(circle, rgba(255,255,255,.50), transparent 56%),
+        conic-gradient(from 180deg, transparent, rgba(216,185,178,.22), transparent);
+      filter: blur(3px);
     }
 
     button,
@@ -121,7 +138,7 @@
       padding: .5rem .85rem;
       border-radius: 999px;
       border: 1px solid rgba(111,100,98,.24);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.76);
       color: var(--taupe-dark);
       font-size: .76rem;
       font-weight: 850;
@@ -304,7 +321,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: .9rem;
-      margin-top: 2rem;
+      margin-top: 1.8rem;
     }
 
     .button {
@@ -615,7 +632,7 @@
       background:
         radial-gradient(circle at top right, rgba(255,255,255,.92), transparent 11rem),
         linear-gradient(135deg, rgba(255,255,255,.75), rgba(242,222,217,.26));
-      box-shadow: 0 18px 55px rgba(92,80,78,.10);
+      box-shadow: var(--shadow-soft);
     }
 
     .panel p {
@@ -1110,9 +1127,7 @@
           </p>
 
           <div class="actions">
-            <button class="button primary" data-scroll="contact">Work With K&amp;T</button>
-            <button class="button secondary" data-scroll="pricing">View 
-              Pricing</button>
+            <button class="button primary" data-scroll="pricing">View Pricing</button>
           </div>
 
           <div class="color-strip">
@@ -1460,7 +1475,7 @@
           </p>
 
           <div class="actions">
-          <button class="button secondary" data-scroll="pricing">View Pricing</button>
+            <button class="button secondary" data-scroll="pricing">View Pricing</button>
           </div>
 
           <p class="form-note" style="margin-top: 1rem;">
@@ -1566,14 +1581,6 @@
     }
 
     const email = "Ktmediamanaging@gmail.com";
-
-    const emailButton = document.getElementById("emailButton");
-
-    emailButton.addEventListener("click", () => {
-      const subject = encodeURIComponent("Social Media Management Inquiry");
-      window.location.href = `mailto:${email}?subject=${subject}`;
-    });
-
     const quickForm = document.getElementById("quickForm");
 
     quickForm.addEventListener("submit", event => {
