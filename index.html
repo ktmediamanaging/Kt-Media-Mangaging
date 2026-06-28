@@ -4,27 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>The Eternal Page</title>
+  <title>KT Media Managing | Social Media Management</title>
   <meta
     name="description"
-    content="A personal, futuristic, high-performance website built from scratch on GitHub Pages."
+    content="KT Media Managing helps businesses build consistent, high-impact social media presence through strategy, content planning, account management, and brand growth systems."
   />
+
+  <meta property="og:title" content="KT Media Managing | Social Media Management" />
+  <meta
+    property="og:description"
+    content="Social media strategy, content systems, and account management for brands ready to show up better online."
+  />
+  <meta property="og:type" content="website" />
 
   <style>
     :root {
-      --bg: #05050a;
-      --bg-soft: #0b0b14;
-      --panel: rgba(255, 255, 255, 0.07);
-      --panel-strong: rgba(255, 255, 255, 0.12);
-      --text: #f6f7fb;
-      --muted: #b7bed4;
-      --accent: #ff4fd8;
-      --accent-2: #6cf6ff;
+      --bg: #030307;
+      --bg-2: #070711;
+      --surface: rgba(255, 255, 255, 0.075);
+      --surface-2: rgba(255, 255, 255, 0.12);
+      --surface-3: rgba(255, 255, 255, 0.18);
+      --text: #f8f8ff;
+      --muted: #bcc3d7;
+      --muted-2: #8d96ae;
+      --line: rgba(255, 255, 255, 0.14);
+      --pink: #ff4fd8;
+      --cyan: #67f7ff;
       --gold: #ffd166;
-      --danger: #ff4d6d;
-      --radius: 28px;
+      --green: #7cffb2;
+      --purple: #935cff;
       --max: 1180px;
-      --shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+      --radius: 28px;
+      --radius-lg: 42px;
+      --shadow: 0 30px 110px rgba(0, 0, 0, 0.55);
+      --ease: cubic-bezier(.2,.8,.2,1);
     }
 
     * {
@@ -33,6 +46,7 @@
 
     html {
       scroll-behavior: smooth;
+      text-size-adjust: 100%;
     }
 
     body {
@@ -43,10 +57,10 @@
         Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
         "Segoe UI", Arial, sans-serif;
       background:
-        radial-gradient(circle at 20% 10%, rgba(255, 79, 216, 0.24), transparent 32rem),
-        radial-gradient(circle at 80% 20%, rgba(108, 246, 255, 0.20), transparent 30rem),
-        radial-gradient(circle at 50% 100%, rgba(255, 209, 102, 0.13), transparent 35rem),
-        linear-gradient(135deg, #030308, #080812 45%, #05050a);
+        radial-gradient(circle at 12% 10%, rgba(255, 79, 216, 0.24), transparent 32rem),
+        radial-gradient(circle at 86% 14%, rgba(103, 247, 255, 0.20), transparent 34rem),
+        radial-gradient(circle at 50% 105%, rgba(255, 209, 102, 0.12), transparent 34rem),
+        linear-gradient(135deg, var(--bg), var(--bg-2) 52%, #04040a);
       overflow-x: hidden;
     }
 
@@ -58,10 +72,10 @@
       background-image:
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: linear-gradient(to bottom, black, transparent 85%);
-      opacity: 0.5;
-      z-index: -2;
+      background-size: 58px 58px;
+      mask-image: linear-gradient(to bottom, black 0%, transparent 82%);
+      opacity: 0.6;
+      z-index: -3;
     }
 
     body::after {
@@ -69,15 +83,16 @@
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.08),
-        transparent
-      );
-      transform: translateX(-100%);
-      animation: scan 9s linear infinite;
-      z-index: -1;
+      background:
+        linear-gradient(
+          120deg,
+          transparent 20%,
+          rgba(255,255,255,0.08) 50%,
+          transparent 80%
+        );
+      transform: translateX(-120%);
+      animation: scan 10s linear infinite;
+      z-index: -2;
     }
 
     @keyframes scan {
@@ -103,42 +118,60 @@
     }
 
     a:focus-visible,
-    button:focus-visible {
-      outline: 3px solid var(--accent-2);
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--cyan);
       outline-offset: 5px;
     }
 
     .skip-link {
       position: absolute;
-      left: 1rem;
       top: -100px;
-      background: var(--text);
-      color: #000;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
+      left: 1rem;
       z-index: 999;
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      background: var(--text);
+      color: #05050a;
+      font-weight: 900;
+      text-decoration: none;
     }
 
     .skip-link:focus {
       top: 1rem;
     }
 
-    .site-shell {
+    .shell {
       width: min(100% - 2rem, var(--max));
       margin: 0 auto;
+    }
+
+    .soft-glow {
+      position: fixed;
+      width: 38rem;
+      height: 38rem;
+      border-radius: 50%;
+      filter: blur(40px);
+      background: rgba(255, 79, 216, 0.12);
+      right: -16rem;
+      top: 20rem;
+      pointer-events: none;
+      z-index: -1;
     }
 
     header {
       position: sticky;
       top: 0;
       z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      background: rgba(3, 3, 7, 0.74);
       backdrop-filter: blur(18px);
-      background: rgba(5, 5, 10, 0.72);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .nav {
-      min-height: 74px;
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -146,66 +179,90 @@
     }
 
     .brand {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: .75rem;
       text-decoration: none;
-      font-weight: 900;
-      letter-spacing: -0.04em;
+      font-weight: 950;
+      letter-spacing: -.04em;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       display: grid;
       place-items: center;
-      border-radius: 14px;
-      background:
-        linear-gradient(135deg, rgba(255,79,216,0.9), rgba(108,246,255,0.9));
-      box-shadow: 0 0 40px rgba(255,79,216,0.45);
-      color: #05050a;
+      border-radius: 15px;
+      color: #030307;
+      background: linear-gradient(135deg, var(--pink), var(--cyan));
+      box-shadow:
+        0 0 34px rgba(255, 79, 216, .42),
+        0 0 60px rgba(103, 247, 255, .18);
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted-2);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
     }
 
     nav ul {
-      list-style: none;
       display: flex;
-      gap: 0.5rem;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
       margin: 0;
       padding: 0;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: .35rem;
+      list-style: none;
     }
 
     nav a {
       display: inline-flex;
-      padding: 0.7rem 0.95rem;
+      align-items: center;
+      min-height: 42px;
+      padding: .65rem .9rem;
       border-radius: 999px;
-      text-decoration: none;
       color: var(--muted);
-      font-weight: 700;
-      font-size: 0.92rem;
-      transition: 180ms ease;
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 850;
+      transition: 180ms var(--ease);
     }
 
     nav a:hover {
       color: var(--text);
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,.08);
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, rgba(255,79,216,.92), rgba(103,247,255,.9));
+      color: #030307 !important;
+      box-shadow: 0 16px 46px rgba(255,79,216,.22);
     }
 
     main {
       display: block;
     }
 
+    section {
+      padding: 6rem 0;
+    }
+
     .hero {
-      min-height: calc(100vh - 74px);
+      min-height: calc(100vh - 76px);
       display: grid;
       align-items: center;
-      padding: 5rem 0;
+      padding: 5rem 0 6rem;
+      position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.08fr .92fr;
       gap: 2rem;
       align-items: center;
     }
@@ -213,39 +270,73 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      gap: .55rem;
       width: fit-content;
-      padding: 0.45rem 0.75rem;
-      border: 1px solid rgba(255,255,255,0.14);
+      padding: .48rem .82rem;
+      border: 1px solid rgba(255,255,255,.15);
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,.065);
       color: var(--muted);
-      font-weight: 800;
-      font-size: 0.82rem;
+      font-size: .78rem;
+      font-weight: 950;
+      letter-spacing: .13em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: .55rem;
+      height: .55rem;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 22px rgba(124,255,178,.75);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
     }
 
     h1 {
-      margin: 1.3rem 0 1rem;
-      max-width: 880px;
-      font-size: clamp(3rem, 9vw, 8.4rem);
-      line-height: 0.86;
-      letter-spacing: -0.095em;
+      margin: 1.2rem 0 1.15rem;
+      max-width: 920px;
+      font-size: clamp(3.35rem, 8.4vw, 8.65rem);
+      line-height: .86;
+      letter-spacing: -.105em;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      max-width: 920px;
+      font-size: clamp(2.15rem, 5.6vw, 5.55rem);
+      line-height: .9;
+      letter-spacing: -.082em;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.15rem;
+      letter-spacing: -.025em;
+    }
+
+    p {
+      margin: 0;
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, var(--text), var(--accent-2), var(--accent), var(--gold));
+      background: linear-gradient(90deg, var(--text), var(--cyan), var(--pink), var(--gold));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-copy {
-      max-width: 670px;
+      max-width: 720px;
       color: var(--muted);
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
-      line-height: 1.7;
+      font-size: clamp(1.06rem, 2vw, 1.42rem);
+      line-height: 1.72;
     }
 
     .actions {
@@ -259,229 +350,530 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
-      min-height: 52px;
+      gap: .55rem;
+      min-height: 54px;
       padding: 0 1.25rem;
+      border: 1px solid rgba(255,255,255,.15);
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
       text-decoration: none;
-      font-weight: 900;
+      font-weight: 950;
       box-shadow: var(--shadow);
+      transition:
+        transform 180ms var(--ease),
+        background 180ms var(--ease),
+        border-color 180ms var(--ease);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
     }
 
     .button.primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #05050a;
+      color: #030307;
+      background: linear-gradient(135deg, var(--pink), var(--cyan));
     }
 
     .button.secondary {
-      background: rgba(255,255,255,0.07);
       color: var(--text);
+      background: rgba(255,255,255,.075);
     }
 
-    .orb-card {
-      min-height: 520px;
+    .button.slim {
+      min-height: 46px;
+      box-shadow: none;
+      background: rgba(255,255,255,.075);
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      margin-top: 2rem;
+      color: var(--muted-2);
+      font-size: .92rem;
+      font-weight: 800;
+    }
+
+    .trust-pill {
+      padding: .55rem .75rem;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 999px;
+      background: rgba(255,255,255,.055);
+    }
+
+    .command-card {
       position: relative;
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: calc(var(--radius) + 14px);
+      min-height: 570px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: calc(var(--radius-lg) + 8px);
       background:
-        linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04)),
-        radial-gradient(circle at 35% 25%, rgba(255,79,216,0.35), transparent 15rem),
-        radial-gradient(circle at 75% 70%, rgba(108,246,255,0.25), transparent 17rem);
+        linear-gradient(180deg, rgba(255,255,255,.13), rgba(255,255,255,.045)),
+        radial-gradient(circle at 35% 25%, rgba(255,79,216,.34), transparent 15rem),
+        radial-gradient(circle at 78% 75%, rgba(103,247,255,.24), transparent 18rem);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
 
-    .orb {
+    .command-card::before {
+      content: "";
       position: absolute;
-      width: 260px;
-      height: 260px;
-      left: 50%;
-      top: 44%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #fff, var(--accent-2) 18%, var(--accent) 45%, #3b0764 75%);
-      box-shadow:
-        0 0 65px rgba(255,79,216,0.7),
-        0 0 120px rgba(108,246,255,0.35),
-        inset 0 0 50px rgba(255,255,255,0.35);
-      animation: float 5.5s ease-in-out infinite;
+      inset: 1rem;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.10);
+      pointer-events: none;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-22px); }
-    }
-
-    .rings {
+    .orbit {
       position: absolute;
       inset: 50%;
       width: 420px;
       height: 420px;
       transform: translate(-50%, -50%);
-      border: 1px solid rgba(255,255,255,0.22);
+      border: 1px solid rgba(255,255,255,.22);
       border-radius: 50%;
+      animation: rotate 20s linear infinite;
     }
 
-    .rings::before,
-    .rings::after {
+    .orbit::before,
+    .orbit::after {
       content: "";
       position: absolute;
-      inset: 38px;
+      inset: 42px;
       border-radius: 50%;
-      border: 1px solid rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,.12);
     }
 
-    .rings::after {
-      inset: 82px;
-      border-color: rgba(108,246,255,0.25);
+    .orbit::after {
+      inset: 90px;
+      border-color: rgba(103,247,255,.25);
     }
 
-    .card-caption {
+    @keyframes rotate {
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    .core {
+      position: absolute;
+      width: 236px;
+      height: 236px;
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #fff 0 4%, var(--cyan) 18%, var(--pink) 48%, #37085d 76%);
+      box-shadow:
+        0 0 70px rgba(255,79,216,.72),
+        0 0 130px rgba(103,247,255,.34),
+        inset 0 0 52px rgba(255,255,255,.32);
+      animation: float 5.4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+      50% { transform: translate(-50%, -50%) translateY(-20px); }
+    }
+
+    .dashboard {
       position: absolute;
       left: 1.25rem;
       right: 1.25rem;
       bottom: 1.25rem;
+      display: grid;
+      gap: .85rem;
       padding: 1rem;
-      border-radius: 22px;
-      background: rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: var(--muted);
-      line-height: 1.6;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(0,0,0,.38);
+      backdrop-filter: blur(12px);
     }
 
-    section {
-      padding: 5rem 0;
+    .dash-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .bar {
+      height: 8px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: rgba(255,255,255,.11);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--pink), var(--cyan));
+      transform-origin: left;
+      animation: loadbar 1.4s var(--ease) both;
+    }
+
+    @keyframes loadbar {
+      from { transform: scaleX(.1); }
+      to { transform: scaleX(1); }
     }
 
     .section-head {
-      max-width: 760px;
-      margin-bottom: 2rem;
-    }
-
-    h2 {
-      margin: 0 0 1rem;
-      font-size: clamp(2.1rem, 5vw, 4.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.075em;
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2.25rem;
     }
 
     .section-head p {
+      max-width: 790px;
       color: var(--muted);
       font-size: 1.1rem;
-      line-height: 1.7;
+      line-height: 1.72;
     }
 
-    .grid {
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
 
-    .panel {
-      padding: 1.25rem;
-      min-height: 230px;
-      border-radius: var(--radius);
-      background: var(--panel);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
 
-    .panel strong {
-      display: block;
-      margin-bottom: 0.75rem;
-      color: var(--text);
-      font-size: 1.15rem;
+    .panel {
+      position: relative;
+      min-height: 235px;
+      padding: 1.25rem;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(103,247,255,.12), transparent 11rem),
+        radial-gradient(circle at bottom left, rgba(255,79,216,.11), transparent 12rem);
+      pointer-events: none;
+      opacity: .85;
+    }
+
+    .panel > * {
+      position: relative;
     }
 
     .panel p {
-      margin: 0;
+      margin-top: .72rem;
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
-    .timeline {
+    .tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 1rem;
+      padding: .38rem .62rem;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 999px;
+      color: var(--muted);
+      background: rgba(255,255,255,.055);
+      font-size: .74rem;
+      font-weight: 950;
+      text-transform: uppercase;
+      letter-spacing: .11em;
+    }
+
+    .mega-panel {
+      min-height: 100%;
+      padding: clamp(1.25rem, 4vw, 2.2rem);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(135deg, rgba(255,79,216,.14), rgba(103,247,255,.10)),
+        rgba(255,255,255,.064);
+      box-shadow: var(--shadow);
+    }
+
+    .mega-panel p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.06rem;
+    }
+
+    .service-number {
+      display: inline-grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 1.1rem;
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255,79,216,.85), rgba(103,247,255,.85));
+      color: #030307;
+      font-weight: 1000;
+    }
+
+    .process {
       display: grid;
       gap: 1rem;
     }
 
-    .moment {
+    .step {
       display: grid;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 130px 1fr;
       gap: 1rem;
-      padding: 1rem;
+      align-items: start;
+      padding: 1.1rem;
+      border: 1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.055);
+      background: rgba(255,255,255,.055);
     }
 
-    .moment time {
+    .step strong {
       color: var(--gold);
-      font-weight: 900;
     }
 
-    .moment p {
-      margin: 0;
+    .step p {
       color: var(--muted);
-      line-height: 1.65;
+      line-height: 1.68;
     }
 
     .quote {
-      padding: clamp(2rem, 6vw, 5rem);
-      border-radius: calc(var(--radius) + 18px);
+      padding: clamp(2rem, 7vw, 5.5rem);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: calc(var(--radius-lg) + 8px);
       background:
-        linear-gradient(135deg, rgba(255,79,216,0.20), rgba(108,246,255,0.15)),
-        rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.14);
+        linear-gradient(135deg, rgba(255,79,216,.20), rgba(103,247,255,.16)),
+        rgba(255,255,255,.07);
       box-shadow: var(--shadow);
     }
 
     blockquote {
       margin: 0;
-      font-size: clamp(1.6rem, 4vw, 4rem);
-      line-height: 1.05;
-      letter-spacing: -0.06em;
-      font-weight: 950;
+      max-width: 1000px;
+      font-size: clamp(1.75rem, 4.3vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -.07em;
+      font-weight: 1000;
+    }
+
+    .packages {
+      align-items: stretch;
+    }
+
+    .package {
+      min-height: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .package ul,
+    .checklist {
+      margin: .5rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: .7rem;
+    }
+
+    .package li,
+    .checklist li {
+      color: var(--muted);
+      line-height: 1.55;
+      display: grid;
+      grid-template-columns: 1.3rem 1fr;
+      gap: .55rem;
+    }
+
+    .package li::before,
+    .checklist li::before {
+      content: "✦";
+      color: var(--cyan);
+      font-weight: 1000;
+    }
+
+    .featured {
+      border-color: rgba(103,247,255,.35);
+      background:
+        linear-gradient(135deg, rgba(103,247,255,.14), rgba(255,79,216,.13)),
+        rgba(255,255,255,.08);
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      gap: 1rem;
+      align-items: stretch;
+      padding: 1rem;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: calc(var(--radius-lg) + 10px);
+      background:
+        radial-gradient(circle at top left, rgba(255,79,216,.17), transparent 22rem),
+        radial-gradient(circle at bottom right, rgba(103,247,255,.13), transparent 25rem),
+        rgba(255,255,255,.07);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-inner {
+      padding: clamp(1.25rem, 4vw, 2.4rem);
+    }
+
+    .contact-inner p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.06rem;
+    }
+
+    .contact-box {
+      padding: 1.25rem;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(0,0,0,.28);
+    }
+
+    .mini-form {
+      display: grid;
+      gap: .8rem;
+      margin-top: 1rem;
+    }
+
+    .field {
+      display: grid;
+      gap: .45rem;
+    }
+
+    label {
+      color: var(--muted);
+      font-size: .88rem;
+      font-weight: 850;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 18px;
+      padding: .9rem 1rem;
+      color: var(--text);
+      background: rgba(255,255,255,.075);
+      font: inherit;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-note {
+      color: var(--muted-2);
+      font-size: .86rem;
+      line-height: 1.55;
     }
 
     footer {
       padding: 3rem 0 4rem;
+      border-top: 1px solid rgba(255,255,255,.09);
       color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
     .footer-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       gap: 1rem;
       flex-wrap: wrap;
+      align-items: center;
     }
 
-    @media (max-width: 860px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity 650ms var(--ease),
+        transform 650ms var(--ease);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 940px) {
       .hero-grid,
-      .grid,
-      .moment {
+      .split,
+      .contact-card {
         grid-template-columns: 1fr;
       }
 
-      .orb-card {
-        min-height: 380px;
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .orb {
-        width: 190px;
-        height: 190px;
+      .command-card {
+        min-height: 450px;
       }
+    }
 
-      .rings {
-        width: 310px;
-        height: 310px;
-      }
-
+    @media (max-width: 760px) {
       nav ul {
         display: none;
+      }
+
+      section {
+        padding: 4.25rem 0;
+      }
+
+      .hero {
+        padding: 4rem 0;
+      }
+
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      .step {
+        grid-template-columns: 1fr;
+      }
+
+      .command-card {
+        min-height: 390px;
+      }
+
+      .core {
+        width: 180px;
+        height: 180px;
+      }
+
+      .orbit {
+        width: 300px;
+        height: 300px;
+      }
+
+      .dashboard {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        margin: 18rem 1rem 1rem;
+      }
+
+      .actions .button {
+        width: 100%;
       }
     }
   </style>
@@ -489,20 +881,24 @@
 
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
+  <div class="soft-glow" aria-hidden="true"></div>
 
   <header>
-    <div class="site-shell nav">
-      <a class="brand" href="#top" aria-label="Go to homepage">
-        <span class="brand-mark" aria-hidden="true">∞</span>
-        <span>The Eternal Page</span>
+    <div class="shell nav">
+      <a class="brand" href="#top" aria-label="KT Media Managing homepage">
+        <span class="brand-mark" aria-hidden="true">KT</span>
+        <span>
+          KT Media Managing
+          <small>Social Media Growth Systems</small>
+        </span>
       </a>
 
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#legacy">Legacy</a></li>
-          <li><a href="#moments">Moments</a></li>
-          <li><a href="#vow">Vow</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#system">System</a></li>
+          <li><a href="#packages">Packages</a></li>
+          <li><a href="#contact" class="nav-cta">Start</a></li>
         </ul>
       </nav>
     </div>
@@ -510,154 +906,423 @@
 
   <main id="main">
     <section class="hero" id="top">
-      <div class="site-shell hero-grid">
-        <div>
-          <p class="eyebrow">Built from scratch • No gatekeepers • GitHub Pages</p>
+      <div class="shell hero-grid">
+        <div class="reveal visible">
+          <p class="eyebrow">Social media management for brands ready to be seen</p>
 
           <h1>
-            A page for
-            <span class="gradient-text">her</span>
-            that feels impossible.
+            Content that makes your brand
+            <span class="gradient-text">impossible to ignore.</span>
           </h1>
 
           <p class="hero-copy">
-            This is the first foundation: fast, clean, futuristic, personal, and built
-            to grow. Replace the words with her name, her story, your memories, and
-            everything that makes this page yours.
+            KT Media Managing helps businesses show up with strategy, consistency,
+            stronger visuals, and a social presence that feels intentional — not random.
+            We turn scattered posting into a system built for attention, trust, and growth.
           </p>
 
-          <div class="actions" aria-label="Page actions">
-            <a class="button primary" href="#about">Start the story</a>
-            <a class="button secondary" href="#moments">See the memories</a>
+          <div class="actions" aria-label="Primary actions">
+            <a class="button primary" href="#contact">Build My Social System</a>
+            <a class="button secondary" href="#services">Explore Services</a>
+          </div>
+
+          <div class="trust-row" aria-label="Business focus areas">
+            <span class="trust-pill">Content Planning</span>
+            <span class="trust-pill">Account Management</span>
+            <span class="trust-pill">Brand Consistency</span>
+            <span class="trust-pill">Growth Strategy</span>
           </div>
         </div>
 
-        <aside class="orb-card" aria-label="Visual feature card">
-          <div class="rings" aria-hidden="true"></div>
-          <div class="orb" aria-hidden="true"></div>
-          <p class="card-caption">
-            This visual system is intentionally dependency-free. No framework. No heavy
-            scripts. Just clean HTML and CSS that GitHub Pages can serve fast.
-          </p>
+        <aside class="command-card reveal visible" aria-label="Social media command center visual">
+          <div class="orbit" aria-hidden="true"></div>
+          <div class="core" aria-hidden="true"></div>
+
+          <div class="dashboard" aria-label="Operational dashboard">
+            <div class="dash-row">
+              <span>Content Engine</span>
+              <strong>Active</strong>
+            </div>
+            <div class="bar" aria-hidden="true"><span style="width: 95%"></span></div>
+
+            <div class="dash-row">
+              <span>Brand Voice</span>
+              <strong>Aligned</strong>
+            </div>
+            <div class="bar" aria-hidden="true"><span style="width: 88%"></span></div>
+
+            <div class="dash-row">
+              <span>Posting Rhythm</span>
+              <strong>Consistent</strong>
+            </div>
+            <div class="bar" aria-hidden="true"><span style="width: 92%"></span></div>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section id="about">
-      <div class="site-shell">
-        <div class="section-head">
-          <h2>About her.</h2>
+    <section id="services">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="tag">What We Do</span>
+          <h2>Social media should not feel like another full-time job.</h2>
           <p>
-            Put her real story here. Her name, what she loves, what she has survived,
-            what makes her different, and why this page exists.
+            Her business exists to remove the chaos from social media. Instead of guessing
+            what to post, when to post, and how to sound online, clients get a clear system:
+            content direction, brand consistency, publishing support, and growth-minded execution.
           </p>
         </div>
 
-        <div class="grid">
-          <article class="panel">
-            <strong>Her energy</strong>
+        <div class="grid-3">
+          <article class="panel reveal">
+            <span class="service-number">01</span>
+            <h3>Social Media Management</h3>
             <p>
-              Describe the way she changes a room, the way she thinks, the way she loves,
-              or the way she fights for what matters.
+              Day-to-day account support built around consistency, stronger presentation,
+              and a feed that looks like a brand — not a random photo dump.
             </p>
           </article>
 
-          <article class="panel">
-            <strong>Her strength</strong>
+          <article class="panel reveal">
+            <span class="service-number">02</span>
+            <h3>Content Strategy</h3>
             <p>
-              Write about what she has overcome, what she carries, and the parts of her
-              that deserve to be seen clearly.
+              Content pillars, post ideas, campaign angles, captions, hooks, and direction
+              so every post has a reason to exist.
             </p>
           </article>
 
-          <article class="panel">
-            <strong>Her future</strong>
+          <article class="panel reveal">
+            <span class="service-number">03</span>
+            <h3>Content Creation Support</h3>
             <p>
-              This section can become dreams, goals, family, business, art, photos,
-              milestones, or anything you want to build next.
+              Visual direction, short-form ideas, branded graphics, content prompts, and
+              reusable systems that help brands stay visible.
+            </p>
+          </article>
+
+          <article class="panel reveal">
+            <span class="service-number">04</span>
+            <h3>Brand Voice & Messaging</h3>
+            <p>
+              Clearer captions, stronger calls-to-action, and messaging that sounds like
+              the business instead of generic internet noise.
+            </p>
+          </article>
+
+          <article class="panel reveal">
+            <span class="service-number">05</span>
+            <h3>Profile Optimization</h3>
+            <p>
+              Bio cleanup, page structure, highlight direction, offer clarity, link strategy,
+              and first-impression improvements.
+            </p>
+          </article>
+
+          <article class="panel reveal">
+            <span class="service-number">06</span>
+            <h3>Growth Systems</h3>
+            <p>
+              A repeatable plan for visibility: what to post, what to measure, what to improve,
+              and how to keep showing up without burning out.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="legacy">
-      <div class="site-shell">
-        <div class="quote">
+    <section id="system">
+      <div class="shell split">
+        <div class="mega-panel reveal">
+          <span class="tag">The System</span>
+          <h2>Not random posting. A machine.</h2>
+          <p>
+            The strongest brands do not win because they post once when they remember.
+            They win because their presence feels consistent. This website is built around
+            that exact idea: strategy first, execution second, measurement always.
+          </p>
+
+          <ul class="checklist">
+            <li>Clarify what the brand should be known for.</li>
+            <li>Build content themes that can repeat without getting boring.</li>
+            <li>Create a posting rhythm the business can actually maintain.</li>
+            <li>Improve the profile so visitors understand the offer fast.</li>
+            <li>Use simple performance signals to improve future content.</li>
+          </ul>
+        </div>
+
+        <div class="process reveal">
+          <article class="step">
+            <strong>Step 01</strong>
+            <div>
+              <h3>Audit</h3>
+              <p>
+                Review the current page, visuals, bio, posting rhythm, audience signals,
+                and obvious missed opportunities.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <strong>Step 02</strong>
+            <div>
+              <h3>Position</h3>
+              <p>
+                Define who the brand serves, what it offers, what makes it trustworthy,
+                and what content should communicate.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <strong>Step 03</strong>
+            <div>
+              <h3>Create</h3>
+              <p>
+                Build content ideas, visuals, captions, campaigns, and a realistic social plan.
+              </p>
+            </div>
+          </article>
+
+          <article class="step">
+            <strong>Step 04</strong>
+            <div>
+              <h3>Manage & Improve</h3>
+              <p>
+                Keep the account active, study what works, and sharpen the plan as the brand grows.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="shell">
+        <div class="quote reveal">
           <blockquote>
-            “Some people get a page. Some people get a monument.”
+            “Your brand does not need louder noise. It needs a clearer signal.”
           </blockquote>
         </div>
       </div>
     </section>
 
-    <section id="moments">
-      <div class="site-shell">
-        <div class="section-head">
-          <h2>Moments.</h2>
+    <section id="packages">
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="tag">Ways To Work Together</span>
+          <h2>Start simple. Scale when the system proves itself.</h2>
           <p>
-            This is where the site starts becoming personal. You can replace these with
-            memories, dates, inside jokes, photos, trips, or promises.
+            These package blocks are written as a strong starting foundation. Adjust the names,
+            deliverables, and pricing once the business decides exactly how she wants to sell.
           </p>
         </div>
 
-        <div class="timeline">
-          <article class="moment">
-            <time datetime="2026">Moment One</time>
+        <div class="grid-3 packages">
+          <article class="panel package reveal">
+            <span class="tag">Starter</span>
+            <h3>Profile + Content Foundation</h3>
             <p>
-              Write the first memory here. Keep it real. The kind of thing only you two
-              understand.
+              For businesses that need the basics cleaned up before they start posting seriously.
             </p>
+            <ul>
+              <li>Profile audit</li>
+              <li>Bio and first-impression cleanup</li>
+              <li>Content pillar direction</li>
+              <li>Starter post ideas</li>
+            </ul>
+            <a class="button slim" href="#contact">Ask About Starter</a>
           </article>
 
-          <article class="moment">
-            <time datetime="2026">Moment Two</time>
+          <article class="panel package featured reveal">
+            <span class="tag">Core Offer</span>
+            <h3>Monthly Social Management</h3>
             <p>
-              Write another memory here. This can become a full timeline later.
+              For brands that want consistent management, content direction, and a stronger
+              online presence every month.
             </p>
+            <ul>
+              <li>Monthly content plan</li>
+              <li>Caption and post direction</li>
+              <li>Publishing support</li>
+              <li>Ongoing optimization</li>
+            </ul>
+            <a class="button primary" href="#contact">Start Monthly</a>
           </article>
 
-          <article class="moment">
-            <time datetime="2026">Moment Three</time>
+          <article class="panel package reveal">
+            <span class="tag">Growth</span>
+            <h3>Campaign + Brand Expansion</h3>
             <p>
-              Add something funny, deep, emotional, or legendary.
+              For businesses ready to launch offers, improve visibility, or build a stronger
+              campaign around a service or product.
             </p>
+            <ul>
+              <li>Campaign strategy</li>
+              <li>Launch content ideas</li>
+              <li>Brand messaging support</li>
+              <li>Performance review</li>
+            </ul>
+            <a class="button slim" href="#contact">Plan A Campaign</a>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="vow">
-      <div class="site-shell">
-        <div class="section-head">
-          <h2>The vow.</h2>
+    <section>
+      <div class="shell">
+        <div class="section-head reveal">
+          <span class="tag">Built For</span>
+          <h2>The businesses that need consistency but do not have time to babysit social media.</h2>
           <p>
-            This final section is the emotional anchor. Put your strongest message here.
-            Short. Honest. Permanent.
+            This section helps visitors self-identify. If they see themselves here, they are more
+            likely to reach out.
           </p>
         </div>
 
-        <div class="panel">
-          <strong>Message from me</strong>
+        <div class="grid-4">
+          <article class="panel reveal">
+            <h3>Local Businesses</h3>
+            <p>Restaurants, salons, boutiques, service providers, and community brands.</p>
+          </article>
+
+          <article class="panel reveal">
+            <h3>Personal Brands</h3>
+            <p>Creators, consultants, coaches, and people whose reputation drives opportunity.</p>
+          </article>
+
+          <article class="panel reveal">
+            <h3>Service Providers</h3>
+            <p>Businesses that need trust, clarity, and repeated visibility to win clients.</p>
+          </article>
+
+          <article class="panel reveal">
+            <h3>New Brands</h3>
+            <p>Startups and early-stage businesses that need a clean social foundation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="shell contact-card reveal">
+        <div class="contact-inner">
+          <span class="tag">Start Here</span>
+          <h2>Ready to make the brand look serious?</h2>
           <p>
-            Replace this with your real words. This page is only the foundation. From
-            here, we can add photos, animations, sections, pages, secret links, music,
-            a gallery, custom art direction, or a full Mythos-level interface.
+            Send a quick inquiry. Share what business you run, which platforms matter most,
+            and what feels broken about your current social media. KT Media Managing can start
+            with an audit, a content plan, or full monthly management.
           </p>
+
+          <div class="actions">
+            <a
+              class="button primary"
+              id="emailButton"
+              href="mailto:YOUR_EMAIL_HERE@example.com?subject=Social%20Media%20Management%20Inquiry"
+            >
+              Email KT Media Managing
+            </a>
+            <a class="button secondary" href="#packages">Compare Packages</a>
+          </div>
+
+          <p class="form-note" style="margin-top: 1rem;">
+            Replace <strong>YOUR_EMAIL_HERE@example.com</strong> in the code with her real business email.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <h3>Quick Inquiry Builder</h3>
+          <p class="form-note">
+            This does not store private data. It creates an email draft on the visitor’s device.
+          </p>
+
+          <form class="mini-form" id="quickForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Your name" />
+            </div>
+
+            <div class="field">
+              <label for="business">Business</label>
+              <input id="business" name="business" placeholder="Business name" />
+            </div>
+
+            <div class="field">
+              <label for="platform">Main platform</label>
+              <select id="platform" name="platform">
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>TikTok</option>
+                <option>LinkedIn</option>
+                <option>Multiple platforms</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="message">What do you need help with?</label>
+              <textarea id="message" name="message" placeholder="I need help with posting consistently, improving content, growing engagement..."></textarea>
+            </div>
+
+            <button class="button primary" type="submit">Create Email Draft</button>
+          </form>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="site-shell footer-row">
-      <p>Built by hand. Hosted free. Owned by you.</p>
-      <p>© <span id="year">2026</span> The Eternal Page</p>
+    <div class="shell footer-row">
+      <p>© <span id="year">2026</span> KT Media Managing. Built by hand. Hosted free. Owned by you.</p>
+      <p>Social Media Management • Content Strategy • Brand Growth</p>
     </div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const year = document.getElementById("year");
+    year.textContent = new Date().getFullYear();
+
+    const reveals = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      reveals.forEach(item => observer.observe(item));
+    } else {
+      reveals.forEach(item => item.classList.add("visible"));
+    }
+
+    const quickForm = document.getElementById("quickForm");
+
+    quickForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const business = document.getElementById("business").value.trim();
+      const platform = document.getElementById("platform").value;
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Social Media Management Inquiry");
+      const body = encodeURIComponent(
+        `Name: ${name || "Not provided"}\n` +
+        `Business: ${business || "Not provided"}\n` +
+        `Main platform: ${platform}\n\n` +
+        `What I need help with:\n${message || "Not provided"}`
+      );
+
+      window.location.href =
+        `mailto:Ktmediamanaging@gmail.com?subject=${subject}&body=${body}`;
+    });
   </script>
 </body>
 </html>
