@@ -7,7 +7,7 @@
   <title>K&T Media Management | Social Media Management</title>
   <meta
     name="description"
-    content="K&T Media Management helps small businesses and creators build an authentic, polished, and profitable social media presence through strategy, content, posting, analytics, and brand direction."
+    content="K&T Media Management helps small businesses and creators build an authentic, polished, and profitable social media presence through strategy, content, posting, analytics, reels, and brand direction."
   />
 
   <meta property="og:title" content="K&T Media Management | Social Media Management" />
@@ -25,23 +25,21 @@
       --ink-2: #7f7371;
       --muted: #9b8d8a;
       --line: #d8cecc;
-      --card: rgba(255, 255, 255, 0.82);
-      --card-strong: #ffffff;
       --taupe: #9b8d8a;
       --taupe-dark: #6f6462;
       --rose: #d8b9b2;
-      --rose-2: #f2ded9;
-      --cream: #fffaf7;
+      --rose-soft: #f2ded9;
+      --white: #ffffff;
       --shadow: 0 24px 70px rgba(92, 80, 78, 0.16);
       --radius: 28px;
       --radius-lg: 44px;
       --max: 1180px;
       --ease: cubic-bezier(.2,.8,.2,1);
 
-      --future-bg: #05050a;
-      --future-pink: #ff4fd8;
+      --future-bg: #06060c;
+      --future-2: #11101c;
       --future-cyan: #67f7ff;
-      --future-gold: #ffd166;
+      --future-pink: #ff4fd8;
     }
 
     * {
@@ -57,12 +55,10 @@
       margin: 0;
       min-height: 100vh;
       color: var(--ink);
-      font-family:
-        "Segoe UI", Inter, ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, Arial, sans-serif;
+      font-family: "Segoe UI", Inter, system-ui, -apple-system, BlinkMacSystemFont, Arial, sans-serif;
       background:
-        radial-gradient(circle at 0% 0%, rgba(216, 185, 178, .35), transparent 30rem),
-        radial-gradient(circle at 100% 15%, rgba(255, 255, 255, .95), transparent 32rem),
+        radial-gradient(circle at 0% 0%, rgba(216, 185, 178, .38), transparent 30rem),
+        radial-gradient(circle at 100% 10%, rgba(255, 255, 255, .92), transparent 32rem),
         linear-gradient(135deg, var(--bg), var(--bg-soft));
       overflow-x: hidden;
     }
@@ -71,27 +67,11 @@
       content: "";
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(115deg, rgba(255,255,255,.75), transparent 38%),
-        radial-gradient(circle at 85% 85%, rgba(255,255,255,.8), transparent 22rem);
-      z-index: -3;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      width: 52rem;
-      height: 52rem;
-      right: -24rem;
-      top: 22rem;
-      pointer-events: none;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(255,255,255,.6), transparent 60%),
-        conic-gradient(from 180deg, transparent, rgba(216,185,178,.18), transparent);
-      filter: blur(2px);
       z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,.7), transparent 38%),
+        radial-gradient(circle at 85% 85%, rgba(255,255,255,.8), transparent 24rem);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -145,8 +125,6 @@
 
     .serif {
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-weight: 400;
-      letter-spacing: .02em;
     }
 
     .italic {
@@ -155,26 +133,7 @@
     }
 
     .divider {
-      height: 1px;
-      background: var(--line);
       width: 100%;
-    }
-
-    .section-label {
-      display: inline-flex;
-      align-items: center;
-      gap: .6rem;
-      width: fit-content;
-      color: var(--taupe-dark);
-      font-size: .8rem;
-      font-weight: 850;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .section-label::before {
-      content: "";
-      width: 32px;
       height: 1px;
       background: var(--line);
     }
@@ -183,8 +142,8 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      border-bottom: 1px solid rgba(155, 141, 138, .24);
-      background: rgba(251, 248, 246, .82);
+      border-bottom: 1px solid rgba(155,141,138,.24);
+      background: rgba(251,248,246,.88);
       backdrop-filter: blur(18px);
     }
 
@@ -204,17 +163,18 @@
     }
 
     .brand-mark {
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       display: grid;
       place-items: center;
       border-radius: 999px;
-      border: 1px solid rgba(155, 141, 138, .42);
+      border: 1px solid rgba(155,141,138,.42);
       color: var(--taupe-dark);
-      background: rgba(255,255,255,.58);
+      background: rgba(255,255,255,.68);
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       box-shadow: 0 12px 30px rgba(92,80,78,.08);
+      flex: 0 0 auto;
     }
 
     .brand-name {
@@ -222,7 +182,7 @@
       gap: .1rem;
       color: var(--taupe-dark);
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: 1.14rem;
+      font-size: 1.05rem;
       letter-spacing: .12em;
       text-transform: uppercase;
     }
@@ -232,7 +192,7 @@
       font-family: "Segoe UI", Arial, sans-serif;
       font-size: .7rem;
       font-weight: 800;
-      letter-spacing: .16em;
+      letter-spacing: .14em;
       text-transform: uppercase;
     }
 
@@ -251,16 +211,13 @@
       display: inline-flex;
       align-items: center;
       min-height: 42px;
-      padding: .66rem .9rem;
+      padding: .65rem .9rem;
       border-radius: 999px;
       color: var(--ink-2);
       text-decoration: none;
       font-size: .92rem;
       font-weight: 750;
-      transition:
-        color 180ms var(--ease),
-        background 180ms var(--ease),
-        transform 180ms var(--ease);
+      transition: 180ms var(--ease);
     }
 
     nav a:hover {
@@ -292,7 +249,6 @@
       display: grid;
       align-items: center;
       padding: 5rem 0 6rem;
-      position: relative;
     }
 
     .hero-grid {
@@ -339,8 +295,8 @@
       max-width: 940px;
       color: var(--taupe-dark);
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: clamp(3.4rem, 9vw, 9.5rem);
-      line-height: .84;
+      font-size: clamp(3.2rem, 8.6vw, 8.9rem);
+      line-height: .86;
       font-weight: 400;
       letter-spacing: -.035em;
     }
@@ -350,8 +306,8 @@
       color: var(--taupe-dark);
       font-family: Georgia, "Times New Roman", Times, serif;
       font-weight: 400;
-      font-size: clamp(2.5rem, 5.8vw, 5.7rem);
-      line-height: .92;
+      font-size: clamp(2.35rem, 5.5vw, 5.35rem);
+      line-height: .94;
       letter-spacing: -.02em;
     }
 
@@ -393,15 +349,12 @@
       padding: 0 1.25rem;
       border: 1px solid rgba(155,141,138,.32);
       border-radius: 999px;
-      background: rgba(255,255,255,.76);
+      background: rgba(255,255,255,.78);
       color: var(--ink);
       text-decoration: none;
       font-weight: 850;
       box-shadow: 0 16px 45px rgba(92,80,78,.10);
-      transition:
-        transform 180ms var(--ease),
-        background 180ms var(--ease),
-        box-shadow 180ms var(--ease);
+      transition: 180ms var(--ease);
       cursor: pointer;
     }
 
@@ -420,13 +373,6 @@
       background: transparent;
     }
 
-    .button.future {
-      color: white;
-      border-color: rgba(255,255,255,.18);
-      background:
-        linear-gradient(135deg, rgba(255,79,216,.9), rgba(103,247,255,.9));
-    }
-
     .trust-row {
       display: flex;
       flex-wrap: wrap;
@@ -441,7 +387,7 @@
       padding: .54rem .78rem;
       border: 1px solid rgba(155,141,138,.24);
       border-radius: 999px;
-      background: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.58);
     }
 
     .brand-card {
@@ -452,9 +398,9 @@
       border: 1px solid rgba(155,141,138,.24);
       border-radius: calc(var(--radius-lg) + 10px);
       background:
-        radial-gradient(circle at 20% 12%, rgba(255,255,255,.95), transparent 20rem),
-        radial-gradient(circle at 85% 85%, rgba(216,185,178,.18), transparent 18rem),
-        rgba(255,255,255,.62);
+        radial-gradient(circle at 20% 12%, rgba(255,255,255,.98), transparent 20rem),
+        radial-gradient(circle at 85% 85%, rgba(216,185,178,.20), transparent 18rem),
+        rgba(255,255,255,.65);
       box-shadow: var(--shadow);
       overflow: hidden;
     }
@@ -472,7 +418,7 @@
       height: 48rem;
       right: -28rem;
       bottom: -30rem;
-      background: rgba(216,185,178,.16);
+      background: rgba(216,185,178,.18);
       border: 1px solid rgba(155,141,138,.12);
     }
 
@@ -481,7 +427,7 @@
       height: 34rem;
       left: -18rem;
       top: -18rem;
-      background: rgba(255,255,255,.65);
+      background: rgba(255,255,255,.70);
       border: 1px solid rgba(155,141,138,.10);
     }
 
@@ -527,7 +473,7 @@
       padding: 1rem;
       border: 1px solid rgba(155,141,138,.22);
       border-radius: 24px;
-      background: rgba(255,255,255,.72);
+      background: rgba(255,255,255,.76);
       backdrop-filter: blur(12px);
       color: var(--ink-2);
       line-height: 1.6;
@@ -537,7 +483,7 @@
       padding: 1.25rem;
       border: 1px solid rgba(155,141,138,.22);
       border-radius: var(--radius-lg);
-      background: rgba(255,255,255,.58);
+      background: rgba(255,255,255,.60);
       box-shadow: var(--shadow);
     }
 
@@ -554,11 +500,9 @@
       padding: 1rem;
       border-radius: 24px;
       border: 1px solid rgba(155,141,138,.18);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       text-decoration: none;
-      transition:
-        transform 180ms var(--ease),
-        background 180ms var(--ease);
+      transition: 180ms var(--ease);
     }
 
     .quick-item:hover {
@@ -582,11 +526,6 @@
       margin-bottom: 2.35rem;
     }
 
-    .section-head.center {
-      justify-items: center;
-      text-align: center;
-    }
-
     .section-head p {
       max-width: 850px;
       color: var(--ink-2);
@@ -594,11 +533,30 @@
       line-height: 1.75;
     }
 
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      width: fit-content;
+      color: var(--taupe-dark);
+      font-size: .8rem;
+      font-weight: 850;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 32px;
+      height: 1px;
+      background: var(--line);
+    }
+
     .about-card {
       padding: clamp(1.5rem, 4vw, 3rem);
       border: 1px solid rgba(155,141,138,.22);
       border-radius: calc(var(--radius-lg) + 8px);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       box-shadow: var(--shadow);
     }
 
@@ -609,10 +567,6 @@
       text-align: center;
       padding-bottom: 2rem;
       border-bottom: 1px solid var(--line);
-    }
-
-    .about-top h2 {
-      margin-bottom: 0;
     }
 
     .about-lead {
@@ -647,7 +601,7 @@
       border-radius: 999px;
       border: 1px solid rgba(155,141,138,.28);
       color: var(--taupe);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.78);
       font-size: 1.8rem;
     }
 
@@ -667,10 +621,6 @@
       color: var(--taupe-dark);
       font-size: clamp(1.45rem, 3vw, 2.3rem);
       font-weight: 700;
-    }
-
-    .row-title .divider {
-      background: var(--line);
     }
 
     .row-content p {
@@ -712,35 +662,13 @@
       gap: 1rem;
     }
 
-    .grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-
     .panel {
-      position: relative;
       min-height: 230px;
       padding: 1.25rem;
       border: 1px solid rgba(155,141,138,.22);
       border-radius: var(--radius);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       box-shadow: 0 18px 55px rgba(92,80,78,.10);
-      overflow: hidden;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at top right, rgba(255,255,255,.72), transparent 11rem),
-        radial-gradient(circle at bottom left, rgba(216,185,178,.16), transparent 12rem);
-    }
-
-    .panel > * {
-      position: relative;
     }
 
     .panel p {
@@ -774,12 +702,11 @@
       min-height: 100%;
       padding: clamp(1.5rem, 4vw, 2.5rem);
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(255,255,255,.14);
       color: white;
       background:
         radial-gradient(circle at 20% 0%, rgba(255,79,216,.25), transparent 20rem),
         radial-gradient(circle at 90% 100%, rgba(103,247,255,.22), transparent 22rem),
-        linear-gradient(135deg, #05050a, #0e0d17);
+        linear-gradient(135deg, var(--future-bg), var(--future-2));
       box-shadow: 0 30px 100px rgba(5,5,10,.32);
       overflow: hidden;
     }
@@ -791,15 +718,15 @@
 
     .dark-system p,
     .dark-system li {
-      color: rgba(255,255,255,.72);
+      color: rgba(255,255,255,.76);
     }
 
     .dark-system .section-label {
-      color: rgba(255,255,255,.78);
+      color: rgba(255,255,255,.84);
     }
 
     .dark-system .section-label::before {
-      background: rgba(255,255,255,.28);
+      background: rgba(255,255,255,.30);
     }
 
     .checklist {
@@ -835,7 +762,7 @@
       padding: 1.15rem;
       border: 1px solid rgba(155,141,138,.20);
       border-radius: var(--radius);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       box-shadow: 0 14px 40px rgba(92,80,78,.08);
     }
 
@@ -853,9 +780,7 @@
       padding: clamp(2rem, 7vw, 5rem);
       border: 1px solid rgba(155,141,138,.22);
       border-radius: calc(var(--radius-lg) + 10px);
-      background:
-        radial-gradient(circle at top left, rgba(255,255,255,.86), transparent 22rem),
-        rgba(255,255,255,.60);
+      background: rgba(255,255,255,.62);
       box-shadow: var(--shadow);
       text-align: center;
     }
@@ -875,7 +800,7 @@
       padding: clamp(1.25rem, 4vw, 2rem);
       border-radius: calc(var(--radius-lg) + 8px);
       border: 1px solid rgba(155,141,138,.22);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       box-shadow: var(--shadow);
     }
 
@@ -908,15 +833,14 @@
       padding: 1.5rem;
       border: 1px solid rgba(155,141,138,.20);
       border-radius: 20px;
-      background: rgba(255,255,255,.82);
+      background: rgba(255,255,255,.84);
       box-shadow: 0 18px 45px rgba(92,80,78,.12);
     }
 
     .price-card.featured {
       border-color: rgba(111,100,98,.38);
       background:
-        linear-gradient(180deg, rgba(255,255,255,.92), rgba(242,222,217,.45)),
-        white;
+        linear-gradient(180deg, rgba(255,255,255,.96), rgba(242,222,217,.45));
       transform: translateY(-6px);
     }
 
@@ -995,7 +919,7 @@
       padding: 1rem;
       border-radius: 22px;
       border: 1px solid rgba(155,141,138,.20);
-      background: rgba(255,255,255,.70);
+      background: rgba(255,255,255,.72);
     }
 
     .addon-icon {
@@ -1028,7 +952,7 @@
       padding: 1rem;
       border: 1px solid rgba(155,141,138,.22);
       border-radius: calc(var(--radius-lg) + 10px);
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       box-shadow: var(--shadow);
     }
 
@@ -1046,7 +970,7 @@
       padding: 1.25rem;
       border-radius: 34px;
       border: 1px solid rgba(155,141,138,.20);
-      background: rgba(255,255,255,.74);
+      background: rgba(255,255,255,.76);
     }
 
     .mini-form {
@@ -1074,7 +998,7 @@
       border-radius: 18px;
       padding: .95rem 1rem;
       color: var(--ink);
-      background: rgba(255,255,255,.84);
+      background: rgba(255,255,255,.86);
       font: inherit;
     }
 
@@ -1099,7 +1023,6 @@
       justify-content: center;
       min-height: 48px;
       padding: 0 1rem;
-      border: 1px solid rgba(155,141,138,.24);
       border-radius: 999px;
       color: white;
       background: var(--taupe-dark);
@@ -1142,7 +1065,6 @@
         grid-template-columns: 1fr;
       }
 
-      .grid-4,
       .quick-path-grid,
       .addon-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1163,7 +1085,6 @@
       }
 
       .nav {
-        align-items: flex-start;
         padding: 1rem 0;
       }
 
@@ -1221,7 +1142,6 @@
       }
 
       .grid-3,
-      .grid-4,
       .quick-path-grid,
       .addon-grid {
         grid-template-columns: 1fr;
@@ -1230,11 +1150,6 @@
       .about-row,
       .step {
         grid-template-columns: 1fr;
-      }
-
-      .icon-bubble {
-        width: 58px;
-        height: 58px;
       }
 
       .actions .button {
@@ -1250,32 +1165,37 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#main <header>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header>
     <div class="shell nav">
-      <a class="brand" href="#top" aria-label="K&T Media Management homepage      <span class="brand-name">
-          K&T Media Management
-          <small>Social Media Manager & Creative Strategist</small>
+      <a class="brand" href="#top" aria-label="K&T Media Management homepage">
+        <span class="brand-mark" aria-hidden="true">K&amp;T</span>
+        <span class="brand-name">
+          K&amp;T Media Management
+          <small>Social Media Manager &amp; Creative Strategist</small>
         </span>
       </a>
 
       <nav aria-label="Main navigation">
         <ul>
-          <li><a href="#about</li>
-          <li><a href="#services/a></li>
-          <li><a href="#system></li>
-          <li><a href="#pricinga></li>
-          <li><a href="#contact" class="nav-ctaul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#system">System</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a class="nav-cta" href="#contact">Start</a></li>
+        </ul>
       </nav>
     </div>
 
     <details class="mobile-menu">
       <summary>Menu</summary>
       <div class="mobile-menu-links">
-        <a href="#about
-        <a href="#services/a>
-        <a href="#system>
-        <a href="#pricinga>
-        <a href="#contact
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#system">System</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Start</a>
       </div>
     </details>
   </header>
@@ -1293,17 +1213,20 @@
           </h1>
 
           <p class="hero-copy">
-            <strong>Kayla — Social Media Manager & Creative Strategist</strong>
+            <strong>Kayla — Social Media Manager &amp; Creative Strategist</strong>
             helps small businesses and creators build a social media presence that feels
             authentic, polished, and profitable.
           </p>
 
           <div class="actions" aria-label="Primary actions">
-            <a class="button primary" href="#contact class="button secondary" href="#pricing
+            <a class="button primary" href="#contact">Work With K&amp;T</a>
+            <a class="button secondary" href="#pricing">View Pricing</a>
+          </div>
+
           <div class="trust-row" aria-label="Specialties">
             <span class="trust-pill">Content Strategy</span>
             <span class="trust-pill">Brand Voice</span>
-            <span class="trust-pill">Reels & TikToks</span>
+            <span class="trust-pill">Reels &amp; TikToks</span>
             <span class="trust-pill">Analytics</span>
             <span class="trust-pill">Design Direction</span>
           </div>
@@ -1330,20 +1253,24 @@
     <section aria-label="Quick navigation">
       <div class="shell quick-path reveal">
         <div class="quick-path-grid">
-          <a class="quick-item" href="#aboutyla</strong>
+          <a class="quick-item" href="#about">
+            <strong>Meet Kayla</strong>
             <span>See the mission, style, and creative direction behind the brand.</span>
           </a>
 
-          <a class="quick-item" href="#servicese Does</strong>
+          <a class="quick-item" href="#services">
+            <strong>What K&amp;T Does</strong>
             <span>Content, captions, reels, analytics, account direction, and more.</span>
           </a>
 
-          <a class="quick-item" href="#pricingkages</strong>
+          <a class="quick-item" href="#pricing">
+            <strong>See Packages</strong>
             <span>Starter, Growth, Premium, plus add-ons for bigger needs.</span>
           </a>
 
-          <a class="quick-item" href="#contactnquiry</strong>
-            <span>Create an email draft and send details directly to K&T.</span>
+          <a class="quick-item" href="#contact">
+            <strong>Start Inquiry</strong>
+            <span>Create an email draft and send details directly to K&amp;T.</span>
           </a>
         </div>
       </div>
@@ -1356,7 +1283,7 @@
             <h2>About Me</h2>
             <div class="divider"></div>
             <p class="about-lead">
-              <strong>Kayla — <span class="italic">Social Media Manager & Creative Strategist</span></strong><br />
+              <strong>Kayla — <span class="italic">Social Media Manager &amp; Creative Strategist</span></strong><br />
               I help small businesses and creators build a social media presence that feels
               authentic, polished, and profitable.
             </p>
@@ -1390,8 +1317,8 @@
                 <ul class="skill-list">
                   <li><span><strong>Content Strategy</strong> → Scroll-stopping posts</span></li>
                   <li><span><strong>Brand Voice Development</strong> → Your unique brand voice</span></li>
-                  <li><span><strong>Short-Form Video Expertise</strong> → Engaging Reels & TikToks</span></li>
-                  <li><span><strong>Analytics & Insights</strong> → Data-driven decisions</span></li>
+                  <li><span><strong>Short-Form Video Expertise</strong> → Engaging Reels &amp; TikToks</span></li>
+                  <li><span><strong>Analytics &amp; Insights</strong> → Data-driven decisions</span></li>
                   <li><span><strong>Design Direction</strong> → Stylish, cohesive visuals</span></li>
                 </ul>
               </div>
@@ -1406,9 +1333,7 @@
                 </div>
                 <p>
                   Modern, cozy, and intentional.
-                  <span class="italic">
-                    I create content that feels relatable and refined.
-                  </span>
+                  <span class="italic">I create content that feels relatable and refined.</span>
                 </p>
               </div>
             </div>
@@ -1434,11 +1359,11 @@
     <section id="services">
       <div class="shell">
         <div class="section-head reveal">
-          <span class="section-label">What K&T Handles</span>
+          <span class="section-label">What K&amp;T Handles</span>
           <h2>Social media support that removes the guessing.</h2>
           <p>
             Instead of wondering what to post, how often to post, or how to make a feed feel cohesive,
-            K&T Media Management gives brands a clearer system for content, visuals, posting, and growth.
+            K&amp;T Media Management gives brands a clearer system for content, visuals, posting, and growth.
           </p>
         </div>
 
@@ -1446,49 +1371,37 @@
           <article class="panel reveal">
             <span class="service-number">01</span>
             <h3>Content Strategy</h3>
-            <p>
-              Content pillars, post angles, campaign ideas, and direction so each post supports the brand.
-            </p>
+            <p>Content pillars, post angles, campaign ideas, and direction so each post supports the brand.</p>
           </article>
 
           <article class="panel reveal">
             <span class="service-number">02</span>
-            <h3>Captions & Hashtags</h3>
-            <p>
-              Strategic captions, stronger hooks, refined messaging, and hashtag support for discoverability.
-            </p>
+            <h3>Captions &amp; Hashtags</h3>
+            <p>Strategic captions, stronger hooks, refined messaging, and hashtag support for discoverability.</p>
           </article>
 
           <article class="panel reveal">
             <span class="service-number">03</span>
-            <h3>Scheduling & Posting</h3>
-            <p>
-              Consistent publishing support so the business does not have to babysit social media every day.
-            </p>
+            <h3>Scheduling &amp; Posting</h3>
+            <p>Consistent publishing support so the business does not have to babysit social media every day.</p>
           </article>
 
           <article class="panel reveal">
             <span class="service-number">04</span>
-            <h3>Reels & Editing</h3>
-            <p>
-              Short-form video ideas and editing support for engaging Reels, TikToks, and campaign content.
-            </p>
+            <h3>Reels &amp; Editing</h3>
+            <p>Short-form video ideas and editing support for engaging Reels, TikToks, and campaign content.</p>
           </article>
 
           <article class="panel reveal">
             <span class="service-number">05</span>
             <h3>Community Management</h3>
-            <p>
-              Support for building a more active, present, and responsive brand experience online.
-            </p>
+            <p>Support for building a more active, present, and responsive brand experience online.</p>
           </article>
 
           <article class="panel reveal">
             <span class="service-number">06</span>
-            <h3>Analytics & Reports</h3>
-            <p>
-              Basic to in-depth analytics depending on the package, helping future content become smarter.
-            </p>
+            <h3>Analytics &amp; Reports</h3>
+            <p>Basic to in-depth analytics depending on the package, helping future content become smarter.</p>
           </article>
         </div>
       </div>
@@ -1541,7 +1454,7 @@
           <article class="step">
             <strong>Step 04</strong>
             <div>
-              <h3>Post & Improve</h3>
+              <h3>Post &amp; Improve</h3>
               <p>Schedule, publish, review signals, and improve future content based on what performs.</p>
             </div>
           </article>
@@ -1578,22 +1491,24 @@
               <div class="price">$450<span>/mo</span></div>
               <ul>
                 <li>8 Posts Per Month</li>
-                <li>Captions & Hashtags</li>
-                <li>Scheduling & Posting</li>
+                <li>Captions &amp; Hashtags</li>
+                <li>Scheduling &amp; Posting</li>
                 <li>Basic Analytics</li>
               </ul>
-              <a class="button secondary" href="#contact</article>
+              <a class="button secondary" href="#contact">Ask About Starter</a>
+            </article>
 
             <article class="price-card featured">
               <h3>Growth</h3>
               <div class="price">$850<span>/mo</span></div>
               <ul>
                 <li>12–20 Posts Per Month</li>
-                <li>Reels & Editing</li>
+                <li>Reels &amp; Editing</li>
                 <li>Caption Strategy</li>
                 <li>Monthly Reports</li>
               </ul>
-              <a class="button primary" href="#contactrticle>
+              <a class="button primary" href="#contact">Start Growth</a>
+            </article>
 
             <article class="price-card">
               <h3>Premium</h3>
@@ -1604,7 +1519,8 @@
                 <li>Community Management</li>
                 <li>In-Depth Analytics</li>
               </ul>
-              <a class="button secondary" href="#contactle>
+              <a class="button secondary" href="#contact">Go Premium</a>
+            </article>
           </div>
 
           <div class="addons">
@@ -1647,7 +1563,7 @@
           <h2>Ready to elevate your social media presence?</h2>
           <p>
             Send a quick inquiry with your business name, the platform you care about most,
-            and what kind of support you need. K&T can start with a clean audit, a package,
+            and what kind of support you need. K&amp;T can start with a clean audit, a package,
             or a custom plan for larger projects.
           </p>
 
@@ -1655,8 +1571,15 @@
             <a
               class="button primary"
               href="mailto:Ktmediamanaging@gmail.com?subject=Social%20Media%20Management%20Inquiry"
-           ail K&T Media Management
-            </a
+            >
+              Email K&amp;T Media Management
+            </a>
+            <a class="button secondary" href="#pricing">Review Pricing</a>
+          </div>
+
+          <p class="form-note" style="margin-top: 1rem;">
+            Email: <strong>Ktmediamanaging@gmail.com</strong>
+          </p>
         </div>
 
         <div class="contact-box">
@@ -1677,8 +1600,8 @@
             </div>
 
             <div class="field">
-              <label for="package">Package interest</label>
-              <select id="package" name="package">
+              <label for="packageInterest">Package interest</label>
+              <select id="packageInterest" name="packageInterest">
                 <option>Starter - $450/mo</option>
                 <option>Growth - $850/mo</option>
                 <option>Premium - $1,500/mo</option>
@@ -1710,9 +1633,11 @@
     </section>
   </main>
 
-  <a class="sticky-help" href="#contact
+  <a class="sticky-help" href="#contact">Start Inquiry</a>
+
+  <footer>
     <div class="shell footer-row">
-      <p>© <span id="year">2026</span> K&T Media Management</p>
+      <p>© <span id="year">2026</span> K&amp;T Media Management</p>
       <p>Authentic • Polished • Profitable</p>
     </div>
   </footer>
@@ -1748,7 +1673,7 @@
 
       const name = document.getElementById("name").value.trim();
       const business = document.getElementById("business").value.trim();
-      const packageInterest = document.getElementById("package").value;
+      const packageInterest = document.getElementById("packageInterest").value;
       const platform = document.getElementById("platform").value;
       const message = document.getElementById("message").value.trim();
 
