@@ -79,8 +79,7 @@
     button:focus-visible,
     input:focus-visible,
     textarea:focus-visible,
-    select:focus-visible,
-    summary:focus-visible {
+    select:focus-visible {
       outline: 3px solid var(--taupe-dark);
       outline-offset: 5px;
     }
@@ -99,7 +98,7 @@
       font-style: italic;
     }
 
-    .pill {
+    .tiny-label {
       display: inline-flex;
       align-items: center;
       gap: .6rem;
@@ -115,7 +114,7 @@
       text-transform: uppercase;
     }
 
-    .pill::before {
+    .tiny-label::before {
       content: "";
       width: .55rem;
       height: .55rem;
@@ -240,7 +239,7 @@
     .hero-grid {
       display: grid;
       grid-template-columns: 1fr .9fr;
-      gap: 2rem;
+      gap: 2.25rem;
       align-items: center;
     }
 
@@ -253,11 +252,11 @@
 
     h1 {
       margin: 1.2rem 0 1rem;
-      max-width: 900px;
+      max-width: 780px;
       color: var(--taupe-dark);
       font-family: Georgia, "Times New Roman", Times, serif;
-      font-size: clamp(3.1rem, 8vw, 8.4rem);
-      line-height: .86;
+      font-size: clamp(3rem, 6vw, 5.8rem);
+      line-height: 1;
       font-weight: 400;
       letter-spacing: -.045em;
     }
@@ -267,8 +266,8 @@
       color: var(--taupe-dark);
       font-family: Georgia, "Times New Roman", Times, serif;
       font-weight: 400;
-      font-size: clamp(2.25rem, 5vw, 5rem);
-      line-height: .96;
+      font-size: clamp(2.25rem, 5vw, 4.8rem);
+      line-height: .98;
       letter-spacing: -.02em;
     }
 
@@ -284,7 +283,7 @@
     }
 
     .hero-copy {
-      max-width: 720px;
+      max-width: 700px;
       color: var(--muted);
       font-size: clamp(1.08rem, 2vw, 1.35rem);
       line-height: 1.72;
@@ -662,7 +661,7 @@
       color: rgba(255,255,255,.76);
     }
 
-    .dark-system .pill {
+    .dark-system .tiny-label {
       color: rgba(255,255,255,.82);
       border-color: rgba(255,255,255,.18);
       background: rgba(255,255,255,.08);
@@ -1091,7 +1090,7 @@
     <section class="hero">
       <div class="shell hero-grid">
         <div class="reveal visible">
-          <p class="pill">Authentic • Polished • Profitable</p>
+          <p class="tiny-label">Authentic • Polished • Profitable</p>
 
           <h1>
             Social media that feels
@@ -1246,7 +1245,7 @@
     <section id="services">
       <div class="shell">
         <div class="section-head reveal">
-          <p class="pill">What K&amp;T Handles</p>
+          <p class="tiny-label">What K&amp;T Handles</p>
           <h2>Social media support that removes the guessing.</h2>
           <p>
             Instead of wondering what to post, how often to post, or how to make a feed feel cohesive,
@@ -1297,7 +1296,7 @@
     <section id="system">
       <div class="shell system-wrap">
         <div class="dark-system reveal">
-          <p class="pill">Operational Excellence</p>
+          <p class="tiny-label">Operational Excellence</p>
           <h2>Beauty on the front. Systems underneath.</h2>
           <p>
             The best social media brands do not rely on random posting. They use a repeatable operating system:
@@ -1446,7 +1445,7 @@
     <section id="contact">
       <div class="shell contact-card reveal">
         <div class="contact-inner">
-          <p class="pill">Let’s Work Together</p>
+          <p class="tiny-label">Let’s Work Together</p>
           <h2>Ready to elevate your social media presence?</h2>
           <p>
             Send a quick inquiry with your business name, the platform you care about most,
