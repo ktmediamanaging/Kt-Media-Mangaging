@@ -7,44 +7,85 @@
 <title>K&T Media Management</title>
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fbf8f6;
-  color: #5f5655;
+
+/* RESET */
+* {
+  box-sizing: border-box;
 }
 
-/* Layout */
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  background: #fbf8f6;
+  color: #5f5655;
+  line-height: 1.6;
+}
+
+/* CONTAINER */
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-/* Header */
+/* HEADER */
 header {
-  background: white;
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.9);
   border-bottom: 1px solid #ddd;
+  backdrop-filter: blur(10px);
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
 }
 
 .nav a {
   text-decoration: none;
-  margin: 0 10px;
+  margin-left: 20px;
   color: #5f5655;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero {
+  padding: 60px 0;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #7f7371;
+  margin-bottom: 25px;
+}
+
+/* BUTTONS */
+.btn-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 .button {
   padding: 12px 20px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-top: 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .primary {
@@ -54,25 +95,106 @@ header {
 
 .secondary {
   border: 1px solid #6f6462;
+  color: #6f6462;
 }
 
-/* Hero */
-.hero {
+/* HERO CARD */
+.hero-card {
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+}
+
+.hero-card h2 {
+  font-size: 48px;
+  margin: 0;
+}
+
+.hero-card p {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* SECTIONS */
+section {
   padding: 60px 0;
-}
-
-h1 {
-  font-size: 38px;
+  border-top: 1px solid #eee;
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 32px;
+  margin-bottom: 20px;
 }
 
-section {
-  padding: 50px 0;
-  border-bottom: 1px solid #ddd;
+.section-text {
+  max-width: 700px;
+  color: #7f7371;
 }
+
+/* SERVICES GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.card {
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* PRICING */
+.pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.price-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.price {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+/* CONTACT */
+.contact-box {
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  color: #888;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 
@@ -110,7 +232,7 @@ section {
       </div>
     </div>
 
-    <div class="hero-box">
+    <div class="hero-card">
       <h2>K&T</h2>
       <p>Media Management</p>
     </div>
@@ -122,8 +244,9 @@ section {
 <section id="about">
   <div class="container">
     <h2>About</h2>
-    <p>
-      I help small businesses grow through strategy, content, and consistency.
+    <p class="section-text">
+      I help small businesses and creators build a social media presence that feels
+      authentic, polished, and profitable.
     </p>
   </div>
 </section>
@@ -133,10 +256,13 @@ section {
   <div class="container">
     <h2>Services</h2>
 
-    <p>Content Strategy</p>
-    <p>Captions & Hashtags</p>
-    <p>Posting & Scheduling</p>
-    <p>Analytics</p>
+    <div class="grid">
+      <div class="card">Content Strategy</div>
+      <div class="card">Captions & Hashtags</div>
+      <div class="card">Posting & Scheduling</div>
+      <div class="card">Analytics & Growth</div>
+    </div>
+
   </div>
 </section>
 
@@ -145,15 +271,29 @@ section {
   <div class="container">
     <h2>Pricing</h2>
 
-    <p><strong>Starter:</strong> $450</p>
-    <p><strong>Growth:</strong> $850</p>
-    <p><strong>Premium:</strong> $1500</p>
+    <div class="pricing">
+      <div class="price-card">
+        <h3>Starter</h3>
+        <div class="price">$450</div>
+      </div>
+
+      <div class="price-card">
+        <h3>Growth</h3>
+        <div class="price">$850</div>
+      </div>
+
+      <div class="price-card">
+        <h3>Premium</h3>
+        <div class="price">$1500</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="container">
+  <div class="container contact-box">
     <h2>Contact</h2>
 
     <a href="mailto:Ktmediamanaging@gmail.com" class="button primary">
